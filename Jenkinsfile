@@ -26,11 +26,12 @@ pipeline {
             }
         }
         stage('Push Docker Image') {
-            echo 'Running pushing image to docker'
+            
             when {
                 branch 'master'
             }
             steps {
+                echo 'Running pushing image to docker'
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
                         app.push("${env.BUILD_NUMBER}")
