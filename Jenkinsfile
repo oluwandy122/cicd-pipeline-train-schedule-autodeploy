@@ -26,6 +26,7 @@ pipeline {
             }
         }
         stage('Push Docker Image') {
+            echo 'Running pushing image to docker'
             when {
                 branch 'master'
             }
